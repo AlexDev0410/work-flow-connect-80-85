@@ -460,7 +460,7 @@ const ProfilePage = () => {
                       <div className="flex justify-between">
                         <span className="text-gray-600 dark:text-gray-300">Miembro desde</span>
                         <span className="font-medium dark:text-white">
-                          {currentUser.joinedAt ? formatDate(currentUser.joinedAt) : "Apr 2025"}
+                          {currentUser.joinedAt ? formatDate(currentUser.joinedAt.toString()) : "Apr 2025"}
                         </span>
                       </div>
                     </div>
@@ -637,7 +637,7 @@ const ProfilePage = () => {
                                 'Completado'}
                             </Badge>
                             <p className="text-xs text-gray-500 dark:text-gray-400 mt-1">
-                              Guardado el {job.savedAt ? formatDate(job.savedAt) : formatDate(job.createdAt)}
+                              Guardado el {job.savedAt ? formatDate(job.savedAt.toString()) : formatDate(job.createdAt)}
                             </p>
                           </div>
                         </div>

@@ -229,7 +229,7 @@ const ChatsPage = () => {
     setIsUploading(true);
     
     try {
-      await fileService.uploadFile(activeChat.id, file);
+      await fileService.uploadFile(file, activeChat.id);
       toast({
         title: "Archivo enviado",
         description: "El archivo se ha enviado correctamente"

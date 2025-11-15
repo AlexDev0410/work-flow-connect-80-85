@@ -9,6 +9,11 @@ export interface UserType {
   status?: 'online' | 'offline';
   bio?: string;
   skills?: string[];
+  location?: string;
+  createdAt?: string;
+  isOnline?: boolean;
+  hourlyRate?: number;
+  lastSeen?: string;
 }
 
 export interface ChatType {
@@ -66,6 +71,8 @@ export interface JobType {
   userName?: string;
   userPhoto?: string;
   comments?: CommentType[];
+  timestamp?: number;
+  savedAt?: number;
 }
 
 export interface CommentType {
@@ -105,6 +112,14 @@ export interface FileType {
   url?: string;
   uploadedAt: string;
   uploadedBy: string;
+}
+
+export interface AuthState {
+  user: UserType | null;
+  token: string | null;
+  loading: boolean;
+  error: string | null;
+  isAuthenticated: boolean;
 }
 
 export interface ChatContextValue {

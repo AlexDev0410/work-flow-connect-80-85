@@ -6,6 +6,7 @@ export const mockUsers: UserType[] = [
     id: '101',
     name: 'Alice Johnson',
     email: 'alice.johnson@example.com',
+    role: 'freelancer',
     photoURL: 'https://randomuser.me/api/portraits/women/1.jpg',
     bio: 'Web Developer specializing in React and Node.js.',
     location: 'San Francisco, CA',
@@ -16,6 +17,7 @@ export const mockUsers: UserType[] = [
     id: '102',
     name: 'Bob Williams',
     email: 'bob.williams@example.com',
+    role: 'freelancer',
     photoURL: 'https://randomuser.me/api/portraits/men/2.jpg',
     bio: 'Mobile App Developer experienced in iOS and Android development.',
     location: 'New York, NY',
@@ -26,6 +28,7 @@ export const mockUsers: UserType[] = [
     id: '103',
     name: 'Charlie Brown',
     email: 'charlie.brown@example.com',
+    role: 'freelancer',
     photoURL: 'https://randomuser.me/api/portraits/men/3.jpg',
     bio: 'Data Scientist passionate about machine learning and AI.',
     location: 'Seattle, WA',
@@ -36,6 +39,7 @@ export const mockUsers: UserType[] = [
     id: '104',
     name: 'Diana Miller',
     email: 'diana.miller@example.com',
+    role: 'freelancer',
     photoURL: 'https://randomuser.me/api/portraits/women/4.jpg',
     bio: 'UI/UX Designer focused on creating intuitive and engaging user experiences.',
     location: 'Los Angeles, CA',
@@ -46,6 +50,7 @@ export const mockUsers: UserType[] = [
     id: '105',
     name: 'Ethan Davis',
     email: 'ethan.davis@example.com',
+    role: 'client',
     photoURL: 'https://randomuser.me/api/portraits/men/5.jpg',
     bio: 'Project Manager with a proven track record of delivering successful projects on time and within budget.',
     location: 'Chicago, IL',
@@ -64,7 +69,9 @@ export const mockJobs: JobType[] = [
     category: 'Diseño Web',
     skills: ['HTML', 'CSS', 'JavaScript'],
     status: 'open',
-    userId: '101'
+    userId: '101',
+    createdAt: new Date().toISOString(),
+    updatedAt: new Date().toISOString()
   },
   {
     id: '2',
@@ -74,7 +81,9 @@ export const mockJobs: JobType[] = [
     category: 'Desarrollo Móvil',
     skills: ['React Native', 'JavaScript', 'iOS', 'Android'],
     status: 'in progress',
-    userId: '102'
+    userId: '102',
+    createdAt: new Date().toISOString(),
+    updatedAt: new Date().toISOString()
   },
   {
     id: '3',
@@ -84,7 +93,9 @@ export const mockJobs: JobType[] = [
     category: 'Ciencia de Datos',
     skills: ['Python', 'Machine Learning', 'TensorFlow', 'Data Analysis'],
     status: 'completed',
-    userId: '103'
+    userId: '103',
+    createdAt: new Date().toISOString(),
+    updatedAt: new Date().toISOString()
   },
   {
     id: '4',
@@ -94,7 +105,9 @@ export const mockJobs: JobType[] = [
     category: 'Diseño UI/UX',
     skills: ['UI Design', 'UX Design', 'Figma', 'Adobe XD'],
     status: 'open',
-    userId: '104'
+    userId: '104',
+    createdAt: new Date().toISOString(),
+    updatedAt: new Date().toISOString()
   },
   {
     id: '5',
@@ -104,7 +117,9 @@ export const mockJobs: JobType[] = [
     category: 'Gestión de Proyectos',
     skills: ['Project Management', 'Agile', 'Scrum', 'Leadership'],
     status: 'in progress',
-    userId: '105'
+    userId: '105',
+    createdAt: new Date().toISOString(),
+    updatedAt: new Date().toISOString()
   }
 ];
 
