@@ -1,3 +1,5 @@
+// Import React at the top level so lazy can be used
+import React from 'react';
 
 // This file provides shimmed implementations for Next.js imports
 // that are used for dynamic imports in our components
@@ -18,15 +20,10 @@ export default function dynamic(
 
   return React.lazy(() => {
     if (!ssr && typeof window === 'undefined') {
-      return new Promise(resolve => {
-        resolve({
-          default: () => null,
-        });
+      return Promise.resolve({
+        default: () => null as any,
       });
     }
     return importFunc();
   });
 }
-
-// Import React at the top level so lazy can be used
-import React from 'react';

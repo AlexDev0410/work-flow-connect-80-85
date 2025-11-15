@@ -14,20 +14,34 @@ const Dashboard = () => {
   const { chats, loadingChats } = useChat();
 
   // Filtrar propuestas recientes
-  const recentJobs = [...jobs].sort((a, b) => b.timestamp - a.timestamp).slice(0, 3);
+  const recentJobs = [...jobs].sort((a, b) => {
+    const timeA = a.timestamp || new Date(a.createdAt).getTime();
+    const timeB = b.timestamp || new Date(b.createdAt).getTime();
+    return timeB - timeA;
+  }).slice(0, 3);
 
   // Filtrar chats con mensajes recientes
   const recentChats = [...chats]
     .filter(chat => chat.lastMessage)
     .sort((a, b) => {
-      const timestampA = a.lastMessage?.timestamp || 0;
-      const timestampB = b.lastMessage?.timestamp || 0;
+      const timestampA = typeof a.lastMessage?.timestamp === 'string' 
+        ? new Date(a.lastMessage.timestamp).getTime() 
+        : (a.lastMessage?.timestamp || 0);
+      const timestampB = typeof b.lastMessage?.timestamp === 'string' 
+        ? new Date(b.lastMessage.timestamp).getTime() 
+        : (b.lastMessage?.timestamp || 0);
       return timestampB - timestampA;
     })
     .slice(0, 3);
 
-  const formatDate = (timestamp: number) => {
-    const date = new Date(timestamp);
+  const formatDate = (timestamp: string | number) => {
+    let timeValue: number;
+    if (typeof timestamp === 'string') {
+      timeValue = new Date(timestamp).getTime();
+    } else {
+      timeValue = timestamp;
+    }
+    const date = new Date(timeValue);
     return date.toLocaleDateString('es-ES', {
       day: '2-digit',
       month: '2-digit', 
@@ -122,11 +136,11 @@ const Dashboard = () => {
                         <div>
                           <CardTitle className="text-lg font-medium">{job.title}</CardTitle>
                           <CardDescription className="text-sm">
-                            Publicado por {job.userName} • {formatDate(job.timestamp)}
+                            Publicado por {job.userName} • {formatDate(job.timestamp || job.createdAt)}
                           </CardDescription>
                         </div>
                         <div className="bg-green-100 text-green-800 text-xs px-2 py-1 rounded-full">
-                          {job.status === 'open' ? 'Abierto' : job.status === 'in-progress' ? 'En progreso' : 'Completado'}
+                          {job.status === 'open' ? 'Abierto' : job.status === 'in progress' ? 'En progreso' : 'Completado'}
                         </div>
                       </div>
                     </CardHeader>
